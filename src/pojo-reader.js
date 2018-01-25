@@ -2,25 +2,26 @@
 'use strict';
 
 function PojoReader(path) {
+  var PojoMetadataResolver = require('./pojo_metadata_resolver/metadata-resolver.js');
   this._path = path;
-  this._metadata = {};
+  this._metadataResolver = new PojoMetadataResolver();
 }
 
 module.exports = PojoReader;
 
-PojoReader.prototype.read = function () {
+PojoReader.prototype.read = function (callback) {
   var lineReader = require('line-reader');
   var self = this;
-  
+
   lineReader.eachLine(this._path, function(line, last) {
-    console.log(line + " --- " + last);
+    self._metadataResolver.resolveLine(line);
+
+    if(last) {
+      callback(self._metadataResolver.fetchMetadata());
+    }
   });
 };
 
 PojoReader.prototype.fetchMetadata = function () {
-  return this._metadata;
-};
-
-PojoReader.prototype.fetchContent = function () {
-  return this._content.toString();
+  return this._metadataResolver;
 };
