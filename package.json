@@ -4,7 +4,7 @@
   "description": "Reads a Plain Old Java Object and turns it into a metadata JSON, giving you hability to automate Java Objects creation.",
   "main": "src/pojo-reader.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text _mocha \"test/**/*-test.js\"",
+    "test": "nyc --reporter=html --reporter=text _mocha \"test/**/*.js\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
