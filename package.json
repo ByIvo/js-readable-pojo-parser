@@ -2,9 +2,9 @@
   "name": "js-readable-pojo-parser",
   "version": "0.0.1",
   "description": "Reads a Plain Old Java Object and turns it into a metadata JSON, giving you hability to automate Java Objects creation.",
-  "main": "src/index.js",
+  "main": "src/pojo-reader.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha \"test/**/*-test.js\"",
+    "test": "nyc --reporter=html --reporter=text _mocha \"test/**/*-test.js\"",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -27,14 +27,13 @@
   },
   "homepage": "https://github.com/ByIvo/js-readable-pojo-parser#readme",
   "devDependencies": {
-    "line-reader": "^0.4.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
-    "fs-extra": "^5.0.0",
     "istanbul": "^0.4.5",
-    "mocha": "^5.0.0",
+    "line-reader": "^0.4.0",
+    "mocha": "^5.0.1",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^11.4.1",
-    "sinon": "^4.2.2"
+    "sinon": "^4.3.0"
   }
 }
